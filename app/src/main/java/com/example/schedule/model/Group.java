@@ -31,9 +31,7 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupNumber='" + groupNumber + '\'' +
-                '}';
+        return "id=" + id +
+                ", groupNumber=" + groupNumber;
     }
 }

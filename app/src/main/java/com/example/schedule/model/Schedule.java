@@ -43,10 +43,7 @@ public class Schedule {
 
     @Override
     public String toString() {
-        return "Schedule{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                '}';
+        return "name=" + name +
+                ", date=" + date;
     }
 }
