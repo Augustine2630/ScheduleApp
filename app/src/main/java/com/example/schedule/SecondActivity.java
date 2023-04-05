@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.schedule.Service.ScheduleService;
 import com.example.schedule.model.Schedule;
 
 import java.util.ArrayList;
@@ -28,12 +31,13 @@ public class SecondActivity extends AppCompatActivity {
         }
         SQLiteDatabase db = getBaseContext().openOrCreateDatabase("app.db", MODE_PRIVATE, null);
         Cursor cursorCourses
-                = db.rawQuery("SELECT * FROM groups WHERE id =" + value, null);
-
-
+                = db.rawQuery("SELECT * FROM schedules WHERE id =" + value, null);
         if (cursorCourses.moveToFirst()){
             schedules.add(new Schedule(cursorCourses.getInt(0), cursorCourses.getString(1), cursorCourses.getString(2)));
         }
-        textView.setText(schedules.get(0).toString());
+        ListView countriesList = findViewById(R.id.schedule);
+        ArrayAdapter<Schedule> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, schedules);
+        countriesList.setAdapter(adapter);
     }
 }
