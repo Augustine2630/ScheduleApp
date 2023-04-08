@@ -23,7 +23,7 @@ public class ScheduleService extends AppCompatActivity {
         return schedules;
     }
 
-    public void initSchedules(SQLiteDatabase db) {
+    public List<Schedule> initSchedules(SQLiteDatabase db) {
         Cursor query;
         schedules.clear();
         db.execSQL("DROP TABLE IF EXISTS schedules");
@@ -36,5 +36,6 @@ public class ScheduleService extends AppCompatActivity {
             schedules.add(new Schedule(query.getInt(0), query.getString(1), query.getString(2)));
         }
         query.close();
+        return schedules;
     }
 }

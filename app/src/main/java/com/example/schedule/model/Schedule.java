@@ -43,6 +43,6 @@ public class Schedule {
 
     @Override
     public String toString() {
-        return "Дата:" + date;
+        return "Предмет: " + name +  ", Дата:" + date;
     }
 }

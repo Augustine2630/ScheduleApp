@@ -1,7 +1,5 @@
 package com.example.schedule.Service;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -20,7 +18,7 @@ public class GroupsService extends AppCompatActivity {
         return groups;
     }
 
-    public void initGroups(SQLiteDatabase db) {
+    public List<Group> initGroups(SQLiteDatabase db) {
         groups.clear();
         db.execSQL("DROP TABLE IF EXISTS groups;");
         db.execSQL("CREATE TABLE IF NOT EXISTS groups (id INTEGER, code TEXT)");
@@ -33,5 +31,6 @@ public class GroupsService extends AppCompatActivity {
             groups.add(new Group(query.getInt(0), query.getString(1)));
         }
         query.close();
+        return groups;
     }
 }
