@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDbHelper = new ScheduleDbHelper(this);
-        initSchedules();
+        if(mDbHelper.getDatabaseName().isEmpty()){
+            initSchedules();
+        }
         // Находим Spinner в макете
         mGroupSpinner = findViewById(R.id.group_spinnner);
         addGroup = findViewById(R.id.addGroup);
