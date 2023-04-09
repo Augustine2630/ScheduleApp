@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
         values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "123");
         values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Monday");
         values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "12:00");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Student");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "French");
         db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
         //new
         values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "1234");
         values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Tuesday");
         values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "13:00");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Student");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Math");
         db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
     }
 
