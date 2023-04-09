@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.schedule.Service.ScheduleContract;
 import com.example.schedule.Service.ScheduleDbHelper;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mDbHelper = new ScheduleDbHelper(this);
+        deleteDBIfExist(mDbHelper.getReadableDatabase());
         System.out.println(mDbHelper.getWritableDatabase());
         initSchedules();
         // Находим Spinner в макете
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "13:00");
         values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Math");
         db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
+
     }
 
     // Обработчик нажатия на кнопку "Выбрать"
@@ -240,5 +243,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mDbHelper.close();
+    }
+
+    public void deleteDBIfExist(SQLiteDatabase db){
+        db.delete(ScheduleContract.ScheduleEntry.TABLE_NAME, null, null);
+//        File dir = new File("/data/data/com.example.schedule/databases");
+//        File file = new File(dir, "schedule.db");
+//        File file2 = new File(dir, "schedule.db-journal");
+//        file2.delete();
+//        Boolean deleted = file.delete();
+//        return deleted;
     }
 }
