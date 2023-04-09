@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDbHelper = new ScheduleDbHelper(this);
-        if(mDbHelper.getDatabaseName().isEmpty()){
-            initSchedules();
-        }
+        System.out.println(mDbHelper.getWritableDatabase());
+        initSchedules();
         // Находим Spinner в макете
         mGroupSpinner = findViewById(R.id.group_spinnner);
         addGroup = findViewById(R.id.addGroup);

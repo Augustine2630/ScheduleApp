@@ -15,6 +15,7 @@ public class ScheduleDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         // Создаем таблицу для хранения групп
         String SQL_CREATE_GROUP_TABLE = "CREATE TABLE " + ScheduleContract.GroupEntry.TABLE_NAME + " (" +
                 ScheduleContract.GroupEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -40,6 +41,6 @@ public class ScheduleDbHelper extends SQLiteOpenHelper {
         // Удаляем таблицы при обновлении базы данных
         db.execSQL("DROP TABLE IF EXISTS " + ScheduleContract.GroupEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ScheduleContract.ScheduleEntry.TABLE_NAME);
-        onCreate(db);
+//        onCreate(db);
     }
 }
