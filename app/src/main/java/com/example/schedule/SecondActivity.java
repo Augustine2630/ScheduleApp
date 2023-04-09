@@ -79,7 +79,7 @@ public class SecondActivity extends AppCompatActivity {
             String subject = cursor.getString(
                     cursor.getColumnIndexOrThrow(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT));
 
-            scheduleBuilder.append(day).append(": ").append(time).append(" - ").append(subject).append("\n");
+            scheduleBuilder.append(day).append(": ").append(time).append("\n").append(subject).append("\n");
         }
 
         cursor.close();

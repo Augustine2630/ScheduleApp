@@ -73,16 +73,22 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         //new
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "123");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Monday");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "12:00");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "French");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "43");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Понедельник");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "11.05.23");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Английский яз.\nAndroid разработка\nРазработка ИС на 1С");
         db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
         //new
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "1234");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Tuesday");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "13:00");
-        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Math");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "13");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Вторник");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "12.05.23");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Русский яз.\nХимия\nАлгебра");
+        db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
+
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_GROUP, "14");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_DAY, "Среда");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_TIME, "13.05.23");
+        values.put(ScheduleContract.ScheduleEntry.COLUMN_SUBJECT, "Русский яз.\nХимия\nАлгебра");
         db.insert(ScheduleContract.ScheduleEntry.TABLE_NAME, null, values);
 
     }
