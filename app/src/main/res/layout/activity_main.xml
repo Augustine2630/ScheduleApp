@@ -7,35 +7,49 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/addSchedule"
-        android:layout_width="411dp"
-        android:layout_height="53dp"
+        android:id="@+id/addGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="500dp"
+        android:text="Добавить группу"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countriesList"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/selectButton"
+        app:layout_constraintVertical_bias="0.807" />
+
+    <Spinner
+        android:id="@+id/group_spinnner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
 
     <Button
-        android:id="@+id/deleteSchedule"
-        android:layout_width="411dp"
-        android:layout_height="53dp"
+        android:id="@+id/selectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="544dp"
+        android:width="500dp"
+        android:text="Выбрать"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_spinnner" />
+
+    <Button
+        android:id="@+id/deleteGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="64dp"
+        android:width="500dp"
+        android:text="Удалить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countriesList"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ListView
-        android:id="@+id/countriesList"
-        android:layout_width="0dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"></ListView>
+        app:layout_constraintTop_toBottomOf="@+id/selectButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

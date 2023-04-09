@@ -30,7 +30,7 @@ public class ScheduleService extends AppCompatActivity {
         db.execSQL("CREATE TABLE IF NOT EXISTS schedules (id INTEGER, name TEXT, date TEXT)");
         db.execSQL("INSERT INTO schedules VALUES (1, 'Math', '12.02.2022')");
         db.execSQL("INSERT INTO schedules VALUES (2, \"Lang\", \"12.02.2022\")");
-        db.execSQL("INSERT INTO schedules VALUES (3, \"Aboba\", \"12.02.2022\")");
+        db.execSQL("INSERT INTO schedules VALUES (3, \"alg\", \"12.02.2022\")");
         query = db.rawQuery("SELECT * FROM schedules;", null);
         while (query.moveToNext()){
             schedules.add(new Schedule(query.getInt(0), query.getString(1), query.getString(2)));
