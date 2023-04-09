@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.schedule.Service.ScheduleContract;
 import com.example.schedule.Service.ScheduleDbHelper;
@@ -50,15 +52,21 @@ public class MainActivity extends AppCompatActivity {
         mGroupSpinner.setAdapter(adapter);
 
         // Создаем экземпляр класса ScheduleDbHelper
-        addGroup.setOnClickListener(v -> {
-            addGroup(v);
-        });
-        selectGroup.setOnClickListener(v -> {
-            selectSchedule(v);
-        });
-        deleteGroupButton.setOnClickListener(v -> {
-            deleteGroup(v);
-        });
+        try {
+            addGroup.setOnClickListener(v -> {
+                addGroup(v);
+            });
+            selectGroup.setOnClickListener(v -> {
+                selectSchedule(v);
+            });
+            deleteGroupButton.setOnClickListener(v -> {
+                deleteGroup(v);
+            });
+        } catch (Exception e) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "нет такого элемента", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     private void initSchedules() {
@@ -83,11 +91,20 @@ public class MainActivity extends AppCompatActivity {
     public void selectSchedule(View view) {
         // Получаем выбранную группу
         String selectedGroup = (String) mGroupSpinner.getSelectedItem();
-
+        noSuchElement(selectedGroup);
         // Переходим на SecondActivity с выбранной группой
         Intent intent = new Intent(this, SecondActivity.class);
         intent.putExtra("selected_group", selectedGroup);
         startActivity(intent);
+    }
+
+    private void noSuchElement(String selectedGroup) {
+        if (selectedGroup == null || selectedGroup.isEmpty()
+                || selectedGroup.equals("")){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "нет такого элемента", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     // Обработчик нажатия на кнопку "Добавить группу"
@@ -135,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     public void deleteGroup(View view) {
         // Получаем выбранную группу
         String selectedGroup = (String) mGroupSpinner.getSelectedItem();
-
+        noSuchElement(selectedGroup);
         // Удаляем группу из базы данных
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         db.delete(ScheduleContract.GroupEntry.TABLE_NAME,
@@ -250,8 +267,16 @@ public class MainActivity extends AppCompatActivity {
 //        File dir = new File("/data/data/com.example.schedule/databases");
 //        File file = new File(dir, "schedule.db");
 //        File file2 = new File(dir, "schedule.db-journal");
-//        file2.delete();
-//        Boolean deleted = file.delete();
-//        return deleted;
+//        if (file.exists()) {
+//
+//            file2.delete();
+//            file.delete();
+//        } else {
+//            Log.i("OK", "OK");
+//        }
+    }
+
+    public void handleNotExists(String selected){
+
     }
 }
